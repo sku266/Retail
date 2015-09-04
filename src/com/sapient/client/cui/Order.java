@@ -1,13 +1,26 @@
 package com.sapient.client.cui;
 
 import java.util.Date;
+import java.util.Set;
 
+enum Status{
+	Pending,
+	PaymentDeclined,
+	AwaitingPayment,
+	ReadyToShip,
+	PendingShippment,
+	OnRoute,
+	Shipped,
+	BackOrdered,
+	OnReturnRoute,
+	Returned
+}
 public class Order {
 	private Date date;
 	private String status;
 	private NewCustomer customer;
 	private Payment payment;
-	private OrderDetail orderdetail;
+	private Set<OrderDetail> orderdetail;
 	
 	public Date getDate() {
 		return date;
@@ -41,11 +54,11 @@ public class Order {
 		this.payment = payment;
 	}
 	
-	public OrderDetail getOrderdetail() {
+	public Set<OrderDetail> getOrderdetail() {
 		return orderdetail;
 	}
 	
-	public void setOrderdetail(OrderDetail orderdetail) {
+	public void setOrderdetail(Set<OrderDetail> orderdetail) {
 		this.orderdetail = orderdetail;
 	}
 	

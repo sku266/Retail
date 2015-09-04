@@ -3,46 +3,53 @@
  */
 package com.sapient.client.cui;
 
-
 public class Item {
  
-	int shippingWeight;
+	double weight;
+	double shippingWeight;
+	double priceForQuantity;
 	String Description;
 	
-	OrderDetail Orderdetails;
+	OrderDetail OrderDetails;
 	
-	public OrderDetail getOrderdetails() {
-		return Orderdetails;
+	public OrderDetail getOrderDetail() {
+		return OrderDetails;
 	}
-	public void setOrderdetails(OrderDetail orderdetails) {
-		Orderdetails = orderdetails;
+	
+	public void setOrderDetail(OrderDetail orderDetails) {
+		OrderDetails = orderDetails;
 	}
-	public int getShippingWeight() {
+	
+	public double getShippingWeight() {
 		return shippingWeight;
 	}
-	public void setShippingWeight(int shippingWeight) {
+	
+	public void setShippingWeight(double shippingWeight) {
 		this.shippingWeight = shippingWeight;
 	}
+	
 	public String getDescription() {
 		return Description;
 	}
+	
 	public void setDescription(String description) {
 		Description = description;
 	}
 	
+	public double getPriceForQuantity() {
+		return priceForQuantity;
+	}
+	
+	public void setPriceForQuantity(double price) {
+		this.priceForQuantity = price;
+	}
+	
+	public double getWeight() {
+		return weight;
+	}
+	
+	public void setWeight(double itemWeight) {
+		this.weight = itemWeight;
+	}
 
-	
-	public int getPriceforQuantity()
-	{
-		return (Integer) null;
-	}
-	
-	
-	public int getWeight()
-	{
-		return (Integer) null;
-	}
-	
-	
-	
 }
