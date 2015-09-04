@@ -2,13 +2,12 @@ package com.sapient.client.cui;
 
 public class Check  extends Payment implements Authorization{
 
-	@Override
-	public void authorization() {
-		// TODO Auto-generated method stub
-		
-	}
+	private int bankID;
+
+
 	
 	private String name;
+	
 	public String getName() {
 		return name;
 	}
@@ -16,13 +15,26 @@ public class Check  extends Payment implements Authorization{
 		this.name = name;
 	}
 	public int getBankID() {
-		return BankID;
+		return bankID;
 	}
 	public void setBankID(int bankID) {
-		BankID = bankID;
+		bankID = bankID;
+	}
+	
+	public boolean authorization() {
+		
+		String stringBankId=Integer.toString(bankID);
+		int length=stringBankId.length();
+		
+		if(length!=6)
+		{
+			return false;
+		}
+		
+		return true;
 	}
 
-	private int BankID;
+
 	
 	
 	
