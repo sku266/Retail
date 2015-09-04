@@ -4,13 +4,25 @@
 package com.sapient.client.cui;
 
 public class Item {
- 
+
 	double weight;
 	double shippingWeight;
 	double priceForQuantity;
 	String Description;
 	
 	OrderDetail OrderDetails;
+	
+	public Item(){
+		
+	}
+	
+	public Item(double w, double sW, double price, String desc, OrderDetail oD){
+		this.setWeight(w);
+		this.setShippingWeight(sW);
+		this.setPriceForQuantity(price);
+		this.setDescription(desc);
+		this.setOrderDetail(oD);
+	}
 	
 	public OrderDetail getOrderDetail() {
 		return OrderDetails;

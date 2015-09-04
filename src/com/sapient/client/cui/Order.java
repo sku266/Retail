@@ -1,26 +1,36 @@
 package com.sapient.client.cui;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
-enum Status{
-	Pending,
-	PaymentDeclined,
-	AwaitingPayment,
-	ReadyToShip,
-	PendingShippment,
-	OnRoute,
-	Shipped,
-	BackOrdered,
-	OnReturnRoute,
-	Returned
-}
+
 public class Order {
 	private Date date;
 	private String status;
 	private NewCustomer customer;
 	private Payment payment;
-	private Set<OrderDetail> orderdetail;
+	private List<OrderDetail> orderDetail;
+	
+	public static enum Status{
+		Pending("Pending"),
+		PaymentDeclined("PaymentDeclined"),
+		AwaitingPayment("AwaitingPayment"),
+		ReadyToShip("ReadyToShip"),
+		PendingShippment("PendingShippment"),
+		OnRoute("OnRoute"),
+		Shipped("Shipped"),
+		BackOrdered("BackOrdered"),
+		OnReturnRoute("OnReturnRoute"),
+		Returned("Returned");
+		
+		private String orderStatus;
+
+		//Constructor
+		Status(String statusString) {orderStatus = statusString;}
+		
+		public String getString() {return orderStatus;}
+	}
 	
 	public Date getDate() {
 		return date;
@@ -34,8 +44,8 @@ public class Order {
 		return status;
 	}
 	
-	public void setStatus(String status) {
-		this.status = status; 
+	public void setStatus(Status status) {
+		this.status = status.getString(); 
 	}
 	
 	public NewCustomer getCustomer() {
@@ -54,23 +64,36 @@ public class Order {
 		this.payment = payment;
 	}
 	
-	public Set<OrderDetail> getOrderdetail() {
-		return orderdetail;
+	public List<OrderDetail> getOrderDetail() {
+		return orderDetail;
 	}
 	
-	public void setOrderdetail(Set<OrderDetail> orderdetail) {
-		this.orderdetail = orderdetail;
+	public void setOrderdetail(List<OrderDetail> orderdetail) {
+		this.orderDetail = orderdetail;
 	}
 	
 	public double calcTax(){
-		return 0;
+		double taxTotal = 0;
+		for(OrderDetail orderObj : orderDetail){
+			double detailTax = orderObj.taxStatus * orderObj.quantity;
+			taxTotal += detailTax;
+		}
+		return taxTotal;
 	}
 	
 	public double calcTotal(){
-		return 0;
+		double total = 0;
+		for(OrderDetail orderObj : orderDetail){
+			total += orderObj.calSubTotal();
+		}
+		return total;
 	}
 	
 	public double calcTotalWeight(){
-		return 0;
+		double total = 0;
+		for(OrderDetail orderObj : orderDetail){
+			total += orderObj.calWeight();
+		}
+		return total;
 	}
 }
