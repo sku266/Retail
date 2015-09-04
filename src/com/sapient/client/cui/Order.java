@@ -1,12 +1,13 @@
 package com.sapient.client.cui;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
 
 public class Order {
-	private Date date;
+	private SimpleDateFormat date;
 	private String status;
 	private NewCustomer customer;
 	private Payment payment;
@@ -32,11 +33,23 @@ public class Order {
 		public String getString() {return orderStatus;}
 	}
 	
-	public Date getDate() {
+	public Order(){
+		
+	}
+	
+	public Order(SimpleDateFormat sdf, Status st, NewCustomer c, Payment p, List<OrderDetail> oD){
+		this.setDate(sdf);
+		this.setStatus(st);
+		this.setCustomer(c);
+		this.setPayment(p);
+		this.setOrderdetail(oD);
+	}
+	
+	public SimpleDateFormat getDate() {
 		return date;
 	}
 	
-	public void setDate(Date date) {
+	public void setDate(SimpleDateFormat date) {
 		this.date = date;
 	}
 	
@@ -75,10 +88,12 @@ public class Order {
 	public double calcTax(){
 		double taxTotal = 0;
 		for(OrderDetail orderObj : orderDetail){
-			double detailTax = orderObj.taxStatus * orderObj.quantity;
+			Item orderItem = orderObj.getItem();
+			double tax = orderObj.taxStatus/100;
+			double detailTax = (tax * orderItem.getPriceForQuantity() * orderObj.quantity);
 			taxTotal += detailTax;
 		}
-		return taxTotal;
+		return Math.round(taxTotal*100.0)/100.0;
 	}
 	
 	public double calcTotal(){
@@ -86,7 +101,7 @@ public class Order {
 		for(OrderDetail orderObj : orderDetail){
 			total += orderObj.calSubTotal();
 		}
-		return total;
+		return Math.round(total*100.0)/100.0;
 	}
 	
 	public double calcTotalWeight(){
@@ -94,6 +109,6 @@ public class Order {
 		for(OrderDetail orderObj : orderDetail){
 			total += orderObj.calWeight();
 		}
-		return total;
+		return Math.round(total*100.0)/100.0;
 	}
 }
