@@ -28,7 +28,9 @@ public class CreditTest {
 	public void tearDown() throws Exception {
 	}
 	
-	
+	/**
+	 * Test method for {@link com.sapient.client.cui.CreditTest#testGetNumber(com.sapient.client.cui)}.
+	 */
 
 	@Test
 	public final void testGetNumber() {
@@ -37,7 +39,9 @@ public class CreditTest {
 		assertEquals(expectedResult, creditCardNumber);
 	}
 
-	
+	/**
+	 * Test method for {@link com.sapient.client.cui.CreditTest#testGetType(com.sapient.client.cui)}.
+	 */
 
 	@Test
 	public final void testGetType() {
@@ -46,7 +50,9 @@ public class CreditTest {
 	assertEquals(expectedResult, CardType);
 	}
 
-	
+	/**
+	 * Test method for {@link com.sapient.client.cui.CreditTest#testGetexpiryDate(com.sapient.client.cui)}.
+	 */
 
 	@Test
 	public final void testGetexpiryDate() {
@@ -54,7 +60,9 @@ public class CreditTest {
     assertEquals(expiryDate1, expiryDate);
 	}
 
-
+	/**
+	 * Test method for {@link com.sapient.client.cui.CreditTest#testAuthorization(com.sapient.client.cui)}.
+	 */
 	@Test
 	public final void testAuthorization() {
 		boolean Result=credit.authorization();

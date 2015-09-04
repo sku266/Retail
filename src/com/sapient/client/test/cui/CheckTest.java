@@ -29,6 +29,10 @@ public class CheckTest {
 	@After
 	public void tearDown() throws Exception {
 	}
+	
+	/**
+	 * Test method for {@link com.sapient.client.cui.CheckTest#getSetNametest(com.sapient.client.cui)}.
+	 */
 
 	@Test
 	public void getSetNametest() {
@@ -40,6 +44,10 @@ public class CheckTest {
 		assertEquals(expected, actual);
 	}
 
+	/**
+	 * Test method for {@link com.sapient.client.cui.CheckTest#getSetBankIdtest(com.sapient.client.cui)}.
+	 */
+	
 	@Test
 	public void getSetBankIdtest() {
 		String expected = "HDFC0001098";
@@ -50,6 +58,10 @@ public class CheckTest {
 		assertEquals(expected, actual);
 	}
 
+	/**
+	 * Test method for {@link com.sapient.client.cui.CheckTest#authorizedTest(com.sapient.client.cui)}.
+	 */
+	
 	@Test
 	public void authorizedTest() {
 		boolean actual=false;

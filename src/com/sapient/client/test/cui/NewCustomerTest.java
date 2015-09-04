@@ -10,43 +10,54 @@ import com.sapient.client.cui.NewCustomer;
 
 public class NewCustomerTest {
 
-	
 	String name;
 	String address;
-	
-    NewCustomer newcustomer=new NewCustomer();
+
+	NewCustomer newcustomer = new NewCustomer();
+
 	@Before
 	public void setUp() throws Exception {
 		name = "Vinay";
 		address = "Gurgaon";
-	 newcustomer.setName(name);
-	   newcustomer.setAddress(address);
-	   
+		newcustomer.setName(name);
+		newcustomer.setAddress(address);
+
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		name=null;
-		address=null;
+		name = null;
+		address = null;
 	}
 
+	/**
+	 * Test method for {@link com.sapient.client.cui.NewCustomerTest#testGetOrder(com.sapient.client.cui)}.
+	 */
+	
 	@Test
 	public final void testGetName() {
-		String expectedName=name;
-		
-		String result=newcustomer.getName();
+		String expectedName = name;
+
+		String result = newcustomer.getName();
 		assertEquals(expectedName, result);
-		
-		
+
 	}
 
+	/**
+	 * Test method for {@link com.sapient.client.cui.NewCustomerTest#testGetOrder(com.sapient.client.cui)}.
+	 */
+	
 	@Test
 	public final void testGetAddress() {
-		String expectedAddress=address;
-		String resultAddress=newcustomer.getAddress();
+		String expectedAddress = address;
+		String resultAddress = newcustomer.getAddress();
 		assertEquals(expectedAddress, resultAddress);
 	}
 
+	/**
+	 * Test method for {@link com.sapient.client.cui.NewCustomerTest#testGetOrder(com.sapient.client.cui)}.
+	 */
+	
 	@Test
 	public final void testGetOrder() {
 		fail("Not yet implemented");

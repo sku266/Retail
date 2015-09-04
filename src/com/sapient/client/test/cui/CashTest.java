@@ -26,6 +26,9 @@ public class CashTest {
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * Test method for {@link com.sapient.client.cui.CashTest#testGetCashTendered(com.sapient.client.cui)}.
+	 */
 	@Test
 	public final void testGetCashTendered() {
 		int expectedResult = 1000;

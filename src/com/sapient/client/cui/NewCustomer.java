@@ -10,8 +10,16 @@ package com.sapient.client.cui;
 public class NewCustomer {
 	private String name;
 	private String address;
-	private Order order;
+	private Order orderRef = new Order();
 	
+	public Order getOrderRef() {
+		return orderRef;
+	}
+
+	public void setOrderRef(Order orderRef) {
+		this.orderRef = orderRef;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -28,12 +36,6 @@ public class NewCustomer {
 		this.address = address;
 	}
 	
-	public Order getOrder() {
-		return order;
-	}
 	
-	public void setOrder(Order order) {
-		this.order = order;
-	}
 	
 }

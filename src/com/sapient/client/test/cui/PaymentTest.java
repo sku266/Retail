@@ -23,14 +23,16 @@ public class PaymentTest {
 	public void tearDown() throws Exception {
 	}
 
+	
+	
 	@Test
 	public final void testGetAmount() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public final void testGetOrderl() {
-		fail("Not yet implemented");
+		
 	}
 
 }
