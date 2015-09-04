@@ -25,7 +25,7 @@ import com.sapient.client.cui.Payment;
  * @author ilisze
  *
  */
-public class orderTest {
+public class OrderTest {
 	Order testOrder;
 	
 	/**
