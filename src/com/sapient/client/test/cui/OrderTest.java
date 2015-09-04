@@ -22,7 +22,7 @@ import com.sapient.client.cui.OrderDetail;
  * @author ilisze
  *
  */
-public class orderTest {
+public class OrderTest {
 	Order testOrder;
 	List<OrderDetail> testOrderDetailList;
 	
